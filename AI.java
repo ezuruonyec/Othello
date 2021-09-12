@@ -5,22 +5,22 @@ import java.util.ListIterator;
 import java.util.Random;
 
 public class AI {
+/**
+ * @Author: Chiamaka Ezuruonye
+ * @Date: September 12, 2021
+ * Project: Othello
+ * **/
 
 	public AI() {
 		GameState state = new GameState();
 		state.setPlayer(1); //player number value
 	}
 
-//	int[][] computeValidMoves(int[][] board, int player) {
-//		// do some stuff to figure out what moves you can play
-//		// return that list of moves
-//	}
-
+	/**
+	 * isMoveValid class takes in game board and returns valid moves
+	 * @param gameBoard has current board stored
+	 * */
 	public int[] isMoveValid(int[][] gameBoard) {
-		int flips = 0;
-		//int rows = 3;
-		//int cols = 3;
-		//int value = gameBoard[rows][cols];
 		boolean valid = false;
 		Random rand = new Random();
 		int ro = rand.nextInt(8);
@@ -173,7 +173,15 @@ public class AI {
 	}
 
 
-public void flips(int row, int col, int[][] gameBoard, int rd, int cd){
+	/**
+	 * flips method takes in rows, cols, gameBoard, row direction and column direction
+	 * @param row takes in current row
+	 * @param  col takes in current col
+	 * @param gameBoard takes in gameBoard   
+	 * @param rd is row direction
+	 * @param cd is column direction   
+	 * **/
+	public void flips(int row, int col, int[][] gameBoard, int rd, int cd){
 		gameBoard[row][col] = 1;
 		row += rd;
 		col += cd;
@@ -185,7 +193,10 @@ public void flips(int row, int col, int[][] gameBoard, int rd, int cd){
 		}
 }
 
-
+/***
+ * computeMove returns move that is valid
+ * @param state is current game state
+ * */
 	public int[] computeMove(GameState state) {
 		System.out.println("AI returning canned move for game state - " + state);
 		int[][] gameBoard = state.getBoard();
